@@ -1,4 +1,3 @@
-```Java
 class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
         Arrays.sort(intervals, new Comparator<int[]>() {
@@ -15,4 +14,3 @@ class Solution {
         return true;
     }
 }
-```
