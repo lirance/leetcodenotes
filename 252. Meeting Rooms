@@ -1,4 +1,4 @@
-```java
+```Java
 class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
         Arrays.sort(intervals, new Comparator<int[]>() {
