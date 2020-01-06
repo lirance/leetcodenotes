@@ -7,7 +7,7 @@ class Solution {
         
         while(i<j){
             int sum = A[i]+A[j];
-            if(sum>K){
+            if(sum>=K){
                 j--;
             }else{
                 maxSum = Math.max(sum,maxSum);
