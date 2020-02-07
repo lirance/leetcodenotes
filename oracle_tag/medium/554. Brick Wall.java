@@ -17,20 +17,26 @@ class Solution {
             }
         }
         
-        PriorityQueue<Map.Entry<Integer,Integer>> pq = new PriorityQueue<>(
-            new Comparator<Map.Entry<Integer,Integer>>(){
-                public int compare(Map.Entry<Integer,Integer> e1, Map.Entry<Integer,Integer> e2){
-                    return e2.getValue()-e1.getValue();
-                }
-            }); 
+//         PriorityQueue<Map.Entry<Integer,Integer>> pq = new PriorityQueue<>(
+//             new Comparator<Map.Entry<Integer,Integer>>(){
+//                 public int compare(Map.Entry<Integer,Integer> e1, Map.Entry<Integer,Integer> e2){
+//                     return e2.getValue()-e1.getValue();
+//                 }
+//             }); 
         
-        pq.addAll(map.entrySet());
+//         pq.addAll(map.entrySet());
+        int res = Integer.MAX_VALUE;
+         for (int key: map.keySet())
+            res = Math.min(res, wall.size() - map.get(key));
         
-        if(pq.isEmpty()){
+        // if(pq.isEmpty()){
+        //     return wall.size();
+        // }else{
+        //     return wall.size()-pq.peek().getValue();
+        // }
+        if(res>wall.size()){
             return wall.size();
-        }else{
-            return wall.size()-pq.peek().getValue();
         }
-        
+        return res;
     }
 }
