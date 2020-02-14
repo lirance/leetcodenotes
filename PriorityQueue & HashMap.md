@@ -6,10 +6,12 @@ How to create PriorityQueue<Map.Entry<>> in JAVA：
 PriorityQueue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue<>(
         new Comparator<Map.Entry<Integer, Integer>>() {
             public int compare(Map.Entry<Integer, Integer> e1, Map.Entry<Integer, Integer> e2) {
+            // e1-e2 => minheap, e2-e1 => maxheap
                 return e1.getValue() - e2.getValue();
             }
         });
 ```
+
 2. optimize method 1  
 ```Java
 PriorityQueue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue<>(
