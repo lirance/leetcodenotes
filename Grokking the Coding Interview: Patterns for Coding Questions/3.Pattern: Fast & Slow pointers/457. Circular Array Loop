@@ -1,0 +1,40 @@
+class Solution {
+    public boolean circularArrayLoop(int[] nums) {
+        
+        for(int i=0; i<nums.length; i++){
+            int low = i, hight = i;
+            int dir = 1;
+            if(nums[i]<0){
+                dir = -1;
+            }
+            do{
+                low = getNetIdx(nums,low,dir);
+                hight = getNetIdx(nums,hight,dir);
+                if(hight!=-1){
+                    hight = getNetIdx(nums,hight,dir);
+                }
+               
+            }while(low!=-1&&hight!=-1&&low!=hight);
+            
+            if(low!=-1 && low==hight){
+                    return true;
+                } 
+        }
+        
+        return false;        
+    }
+    
+    
+    public int getNetIdx(int[] nums,int idx,int dir){
+        int len = nums.length;
+        if(nums[idx]*dir<0){
+            return -1;
+        }
+        int nidx = (idx + nums[idx])%len;    
+        if(nidx<0){
+            nidx = len + nidx;
+        }
+       
+        return nidx==idx?-1:nidx;
+    }
+}
